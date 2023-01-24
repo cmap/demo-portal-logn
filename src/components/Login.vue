@@ -67,6 +67,25 @@ export default {
         self.$API_KEY = dat.api_key;
         console.log("user info saved into local storage");
         self.$refs['login-modal'].hide();
+        const payload = {
+          "pert_iname": "BSO",
+          "project": "MTS019_VALIDATION_COMPOUNDS_INTERNAL",
+          "pert_plate": "PMTS051",
+          "screen": "MTS019",
+          "pert_id": "BRD-A47706533"
+        }
+        const filter = JSON.stringify(payload)
+        axios.get(this.$API_URL  + 'prism-portal/get_multivariate-biomarker-complete-data-table?filter=' + filter, {
+          headers: {
+            'user_key': self.$API_KEY
+          }
+        }).then(function (res) {
+          const dat = res.data;
+          console.log(dat);
+        }).catch(function (error) {
+          console.log("error2")
+          console.log(error);
+        });
       }).catch(function (error) {
         console.log("error")
         console.log(error);
