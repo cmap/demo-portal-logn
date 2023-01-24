@@ -75,7 +75,7 @@ export default {
           "pert_id": "BRD-A47706533"
         }
         const filter = JSON.stringify(payload)
-        axios.get(this.$API_URL  + 'prism-portal/get_multivariate-biomarker-complete-data-table?filter=' + filter, {
+        axios.get(this.$API_URL  + 'prism-portal/multivariate-biomarker-complete-data-table?filter=' + filter, {
           headers: {
             'user_key': self.$API_KEY
           }
